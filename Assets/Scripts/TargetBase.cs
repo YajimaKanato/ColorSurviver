@@ -20,6 +20,8 @@ public class TargetBase : MonoBehaviour, IColorChange
     Vector3 _direction;
     float _theta;
     float _speed;
+    bool _isCatched = false;
+    public bool IsCatched { get { return _isCatched; } set { _isCatched = value; } }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -49,19 +51,27 @@ public class TargetBase : MonoBehaviour, IColorChange
         {
             Debug.LogWarning("ScriptableObject/ColorStatusÇ™ê›íËÇ≥ÇÍÇƒÇ¢Ç‹ÇπÇÒ");
         }
-
-        Invoke(nameof(ReleaseToPool), 1.0f);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if( _isCatched)
+        {
+            gameObject.transform.position = gameObject.transform.parent.position;
+        }
     }
 
     private void FixedUpdate()
     {
-        _rb2d.linearVelocity = _direction * _speed;
+        if (!_isCatched)
+        {
+            _rb2d.linearVelocity = _direction * _speed;
+        }
+        else
+        {
+            _rb2d.linearVelocity = Vector3.zero;
+        }
     }
 
     /// <summary>
@@ -91,5 +101,13 @@ public class TargetBase : MonoBehaviour, IColorChange
     void ReleaseToPool()
     {
         OPAS.ReleaseToPool(gameObject);
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Destroy")
+        {
+            ReleaseToPool();
+        }
     }
 }
