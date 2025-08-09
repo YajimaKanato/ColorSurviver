@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4838414084735491634}
   - component: {fileID: 7454340325847165389}
   m_Layer: 0
-  m_Name: Red
+  m_Name: White
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _colorPalette: {fileID: 11400000, guid: 3c70ddcdbcca182448ce7899bebce55f, type: 2}
-  _colorStatus: {fileID: 11400000, guid: a1a34593609bfd344a23059d7b1ebd08, type: 2}
+  _colorStatus: {fileID: 11400000, guid: 38902cea803cecb40b17df49b4ed8240, type: 2}
   _catchOffset: {x: 0, y: -0.5, z: 0}
 --- !u!1 &8993413699796156921
 GameObject:
