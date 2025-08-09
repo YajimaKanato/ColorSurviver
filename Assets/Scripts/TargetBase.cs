@@ -13,6 +13,8 @@ public class TargetBase : MonoBehaviour, IColorChange
 
     Rigidbody2D _rb2d;
     CircleCollider2D _cc2d;
+    public ColorStatus ColorStatus { get { return _colorStatus; } }
+
     /// <summary>
     /// オブジェクトプールを設定するプロパティ
     /// </summary>
@@ -93,6 +95,12 @@ public class TargetBase : MonoBehaviour, IColorChange
     public void ColorChange(ColorAttribute color)
     {
 
+    }
+
+    public void SuccessClassification()
+    {
+
+        ReleaseToPool();
     }
 
     /// <summary>

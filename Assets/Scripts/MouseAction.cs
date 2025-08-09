@@ -1,11 +1,15 @@
 using UnityEngine;
 
-[RequireComponent(typeof(CircleCollider2D))]
+[RequireComponent(typeof(CircleCollider2D), typeof(SpriteRenderer))]
 public class MouseAction : MonoBehaviour
 {
+    [SerializeField] Sprite _handOpen;
+    [SerializeField] Sprite _handClose;
+
     CircleCollider2D _cc2d;
     GameObject _target;
     TargetBase _targetBase;
+    SpriteRenderer _sr;
 
     Vector3 _mousePos;
     Vector3 _thisPos;
@@ -16,6 +20,8 @@ public class MouseAction : MonoBehaviour
         _cc2d.isTrigger = true;
         _cc2d.radius = 0.1f;
         _cc2d.enabled = false;
+        _sr = GetComponent<SpriteRenderer>();
+        _sr.sprite = _handOpen;
     }
 
     private void Update()
@@ -27,11 +33,13 @@ public class MouseAction : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            _sr.sprite = _handClose;
             _cc2d.enabled = true;
         }
 
         if (Input.GetMouseButtonUp(0))
         {
+            _sr.sprite = _handOpen;
             _targetBase.IsCatched = false;
             _target?.transform.SetParent(null);
             _target = null;
