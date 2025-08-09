@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa11a1b43107bb24491480132f59769c, type: 3}
   m_Name: Blue
   m_EditorClassIdentifier: 
-  _colorAttribute: 5
-  _maxSpeed: 3
+  _colorAttribute: 0
+  _maxSpeed: 5
   _minSpeed: 1
