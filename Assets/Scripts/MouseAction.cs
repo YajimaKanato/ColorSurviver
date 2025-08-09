@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(CircleCollider2D), typeof(SpriteRenderer))]
@@ -34,7 +35,7 @@ public class MouseAction : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             _sr.sprite = _handClose;
-            _cc2d.enabled = true;
+            StartCoroutine(ColliderCoroutine());
         }
 
         if (Input.GetMouseButtonUp(0))
@@ -45,6 +46,14 @@ public class MouseAction : MonoBehaviour
             _target = null;
             _cc2d.enabled = false;
         }
+    }
+
+    IEnumerator ColliderCoroutine()
+    {
+        _cc2d.enabled = true;
+        yield return new WaitForSeconds(0.1f);
+        _cc2d.enabled = false;
+        yield break;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
