@@ -9,6 +9,7 @@ public class TargetBase : MonoBehaviour, IColorChange
 {
     [SerializeField] ColorPallete _colorPalette;
     [SerializeField] ColorStatus _colorStatus;
+    [SerializeField] Vector3 _catchOffset;
 
     Rigidbody2D _rb2d;
     CircleCollider2D _cc2d;
@@ -56,9 +57,9 @@ public class TargetBase : MonoBehaviour, IColorChange
     // Update is called once per frame
     void Update()
     {
-        if( _isCatched)
+        if (_isCatched)
         {
-            gameObject.transform.position = gameObject.transform.parent.position;
+            gameObject.transform.position = gameObject.transform.parent.position + _catchOffset;
         }
     }
 

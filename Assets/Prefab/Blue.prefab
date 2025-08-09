@@ -167,3 +167,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _colorPalette: {fileID: 11400000, guid: 3c70ddcdbcca182448ce7899bebce55f, type: 2}
   _colorStatus: {fileID: 11400000, guid: b039545eb4744d74ab299c54c4056728, type: 2}
+  _catchOffset: {x: 0, y: -0.5, z: 0}
