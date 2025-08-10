@@ -1,17 +1,21 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CountDown : MonoBehaviour
+public class CountDown : MonoBehaviour, IPause,IGameEnd
 {
     [SerializeField] int _maxTargetCount = 20;
     [SerializeField] float _countDown = 10;
     [SerializeField] Text _countDownText;
 
     ObjectPoolAndSpawn[] _objectPool;
-    Coroutine _coroutine;
+    IEnumerator _coroutine;
     int _currentTargetCount = 0;
     int _count;
+
+    bool _isGameOver = false;
+    bool _isGameClear = false;
 
     private void Start()
     {
@@ -21,21 +25,26 @@ public class CountDown : MonoBehaviour
 
     private void Update()
     {
-        GetTargetCount();
+        if (!_isGameClear)
+        {
+            GetTargetCount();
 
-        if (_currentTargetCount >= _maxTargetCount)
-        {
-            if (_coroutine == null)
+            if (_currentTargetCount >= _maxTargetCount)
             {
-                _coroutine = StartCoroutine(CountDownCoroutine());
+                if (_coroutine == null)
+                {
+                    _coroutine = CountDownCoroutine();
+                    StartCoroutine(_coroutine);
+                }
             }
-        }
-        else
-        {
-            if (_coroutine != null)
+            else
             {
-                StopCoroutine(_coroutine);
-                _coroutine = null;
+                if (_coroutine != null)
+                {
+                    StopCoroutine(_coroutine);
+                    _coroutine = null;
+                    _countDownText.text = "";
+                }
             }
         }
     }
@@ -58,6 +67,7 @@ public class CountDown : MonoBehaviour
             if (_count <= 0)
             {
                 _countDownText.text = "Game Over";
+                GameOver();
                 yield break;
             }
             else
@@ -67,5 +77,44 @@ public class CountDown : MonoBehaviour
                 _count--;
             }
         }
+    }
+
+    void GameOver()
+    {
+        //Objectを継承したGameObjectを指定することですべてのオブジェクトを取得することができる
+        var pause = FindObjectsByType(typeof(GameObject), FindObjectsSortMode.None);
+        foreach (var obj in pause)
+        {
+            obj.GetComponent<IGameEnd>()?.GameOver();
+        }
+    }
+
+    public void Pause()
+    {
+        if (_coroutine != null)
+        {
+            StopCoroutine(_coroutine);
+        }
+    }
+
+    public void Resume()
+    {
+        if(_coroutine != null)
+        {
+            StartCoroutine(_coroutine);
+        }
+    }
+
+    public void GameClear()
+    {
+        if (_coroutine != null)
+        {
+            StopCoroutine(_coroutine);
+        }
+    }
+
+    void IGameEnd.GameOver()
+    {
+
     }
 }

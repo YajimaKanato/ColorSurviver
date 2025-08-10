@@ -5,7 +5,7 @@ using ColorAttributes;
 /// 白地のオブジェクトにアタッチ
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D), typeof(CircleCollider2D))]
-public class TargetBase : MonoBehaviour
+public class TargetBase : MonoBehaviour, IPause, IGameEnd
 {
     [SerializeField] ColorPallete _colorPalette;
     [SerializeField] ColorStatus _colorStatus;
@@ -32,6 +32,10 @@ public class TargetBase : MonoBehaviour
     protected float _speed;
     bool _isCatched = false;
     public bool IsCatched { get { return _isCatched; } set { _isCatched = value; } }
+
+    bool _isPause = false;
+    bool _isGameClear = false;
+    bool _isGameOver = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -91,13 +95,20 @@ public class TargetBase : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!_isCatched)
+        if (_isPause || _isGameClear || _isGameOver)
         {
-            _rb2d.linearVelocity = _direction * _speed * _originalSpeed;
+            _rb2d.linearVelocity = Vector3.zero;
         }
         else
         {
-            _rb2d.linearVelocity = Vector3.zero;
+            if (!_isCatched)
+            {
+                _rb2d.linearVelocity = _direction * _speed * _originalSpeed;
+            }
+            else
+            {
+                _rb2d.linearVelocity = Vector3.zero;
+            }
         }
     }
 
@@ -157,5 +168,25 @@ public class TargetBase : MonoBehaviour
         {
             ReleaseToPool();
         }
+    }
+
+    public void Pause()
+    {
+        _isPause = true;
+    }
+
+    public void Resume()
+    {
+        _isPause = false;
+    }
+
+    public void GameClear()
+    {
+        _isGameClear = true;
+    }
+
+    public void GameOver()
+    {
+        _isGameOver = true;
     }
 }

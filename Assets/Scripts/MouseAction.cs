@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(CircleCollider2D), typeof(SpriteRenderer))]
-public class MouseAction : MonoBehaviour
+public class MouseAction : MonoBehaviour, IPause, IGameEnd
 {
     [SerializeField] Sprite _handOpen;
     [SerializeField] Sprite _handClose;
@@ -14,6 +14,10 @@ public class MouseAction : MonoBehaviour
 
     Vector3 _mousePos;
     Vector3 _thisPos;
+
+    bool _isPause = false;
+    bool _isGameClear = false;
+    bool _isGameOver = false;
 
     private void Start()
     {
@@ -27,27 +31,30 @@ public class MouseAction : MonoBehaviour
 
     private void Update()
     {
-        _mousePos = Input.mousePosition;
-        _thisPos = Camera.main.ScreenToWorldPoint(_mousePos);
-        _thisPos.z = 0;
-        transform.position = _thisPos;
-
-        if (Input.GetMouseButtonDown(0))
+        if (!_isPause && !_isGameClear && !_isGameOver)
         {
-            _sr.sprite = _handClose;
-            StartCoroutine(ColliderCoroutine());
-        }
+            _mousePos = Input.mousePosition;
+            _thisPos = Camera.main.ScreenToWorldPoint(_mousePos);
+            _thisPos.z = 0;
+            transform.position = _thisPos;
 
-        if (Input.GetMouseButtonUp(0))
-        {
-            _sr.sprite = _handOpen;
-            if (_target)
+            if (Input.GetMouseButtonDown(0))
             {
-                _targetBase.IsCatched = false;
-                _target.transform.SetParent(null);
-                _target = null;
+                _sr.sprite = _handClose;
+                StartCoroutine(ColliderCoroutine());
             }
-            _cc2d.enabled = false;
+
+            if (Input.GetMouseButtonUp(0))
+            {
+                _sr.sprite = _handOpen;
+                if (_target)
+                {
+                    _targetBase.IsCatched = false;
+                    _target.transform.SetParent(null);
+                    _target = null;
+                }
+                _cc2d.enabled = false;
+            }
         }
     }
 
@@ -68,5 +75,25 @@ public class MouseAction : MonoBehaviour
             _targetBase.IsCatched = true;
             _target.transform.SetParent(this.transform);
         }
+    }
+
+    public void Pause()
+    {
+        _isPause = true;
+    }
+
+    public void Resume()
+    {
+        _isPause = false;
+    }
+
+    public void GameClear()
+    {
+        _isGameClear = true;
+    }
+
+    public void GameOver()
+    {
+        _isGameOver = true;
     }
 }
