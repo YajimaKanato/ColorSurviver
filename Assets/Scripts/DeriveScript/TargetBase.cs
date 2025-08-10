@@ -1,5 +1,6 @@
 using UnityEngine;
 using ColorAttributes;
+using System.Collections;
 
 /// <summary>
 /// 白地のオブジェクトにアタッチ
@@ -20,6 +21,8 @@ public class TargetBase : MonoBehaviour, IPause, IGameEnd
     Rigidbody2D _rb2d;
     CircleCollider2D _cc2d;
     ObjectPoolAndSpawn _objectPool;
+    Animator _animator;
+    Animator _childAnim;
     public ColorStatus ColorStatus { get { return _colorStatus; } }
 
     /// <summary>
@@ -27,9 +30,13 @@ public class TargetBase : MonoBehaviour, IPause, IGameEnd
     /// </summary>
     public ObjectPoolAndSpawn OPAS { get; set; }
 
-    protected Vector3 _direction;
-    protected float _theta;
-    protected float _speed;
+    IEnumerator _coroutine;
+    Vector3 _direction;
+    float _theta;
+    float _speed;
+    float _cos, _sin;
+    float _sqrt2;
+    float _delta;
     bool _isCatched = false;
     public bool IsCatched { get { return _isCatched; } set { _isCatched = value; } }
 
@@ -42,13 +49,15 @@ public class TargetBase : MonoBehaviour, IPause, IGameEnd
     {
         if (_colorStatus)
         {
-            MoveSetting();
-
             //諸々のセッティング
             _rb2d = GetComponent<Rigidbody2D>();
             _rb2d.gravityScale = 0;
             _rb2d.freezeRotation = true;
             _cc2d = GetComponent<CircleCollider2D>();
+            _animator = GetComponent<Animator>();
+            _childAnim = transform.GetChild(0).GetComponent<Animator>();
+            _coroutine = MoveChange();
+            StartCoroutine(_coroutine);
             if (_colorPalette)
             {
                 ColorSetting();
@@ -112,7 +121,7 @@ public class TargetBase : MonoBehaviour, IPause, IGameEnd
         }
     }
 
-    protected void MoveSetting()
+    void MoveSetting()
     {
         //動く速度と方向決め
         _theta = Random.Range(0, 2 * Mathf.PI);
@@ -157,9 +166,56 @@ public class TargetBase : MonoBehaviour, IPause, IGameEnd
     /// オブジェクトプールに返す関数
     /// オブジェクトが消える時に呼び出す
     /// </summary>
-    protected void ReleaseToPool()
+    void ReleaseToPool()
     {
         OPAS.ReleaseToPool(gameObject);
+    }
+
+    IEnumerator MoveChange()
+    {
+        while (true)
+        {
+            _delta += Time.deltaTime;
+            if (_delta >= 1.0)
+            {
+                _delta = 0;
+                MoveSetting();
+
+                _cos = Vector3.Dot(_direction, Vector3.right);
+                _sin = Mathf.Sqrt(1 - _cos * _cos);
+                _sqrt2 = Mathf.Sqrt(2);
+                if (1 / _sqrt2 <= _cos)
+                {
+                    Debug.Log("Right");
+                    _animator.SetTrigger("Right");
+                    _childAnim.SetTrigger("Right");
+                }
+                else if (_cos <= -1 / _sqrt2 && _cos <= 1 / _sqrt2 && _sin >= 0)
+                {
+                    Debug.Log("Up");
+                    _animator.SetTrigger("Up");
+                    _childAnim.SetTrigger("Up");
+                }
+                else if (_cos <= -1 / _sqrt2 && _cos <= 1 / _sqrt2 && _sin <= 0)
+                {
+                    Debug.Log("Down");
+                    _animator.SetTrigger("Down");
+                    _childAnim.SetTrigger("Down");
+                }
+                else if (_cos <= -1 / _sqrt2)
+                {
+                    Debug.Log("Left");
+                    _animator.SetTrigger("Left");
+                    _childAnim.SetTrigger("Left");
+                }
+            }
+
+            if (_isGameClear || _isGameOver)
+            {
+                yield break;
+            }
+            yield return null;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -172,11 +228,19 @@ public class TargetBase : MonoBehaviour, IPause, IGameEnd
 
     public void Pause()
     {
+        if (_coroutine != null)
+        {
+            StopCoroutine(_coroutine);
+        }
         _isPause = true;
     }
 
     public void Resume()
     {
+        if (_coroutine != null)
+        {
+            StartCoroutine(_coroutine);
+        }
         _isPause = false;
     }
 
