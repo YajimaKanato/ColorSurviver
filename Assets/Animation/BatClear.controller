@@ -6,7 +6,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: bat_64_right_color_0
+  m_Name: BatClear
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers: []
