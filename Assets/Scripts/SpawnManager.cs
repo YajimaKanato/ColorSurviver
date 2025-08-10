@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// ÉvÅ[ÉãÇ…ê∂ê¨Çéwé¶
 /// </summary>
-public class SpawnManager : MonoBehaviour
+public class SpawnManager : MonoBehaviour,IPause,IGameEnd
 {
     [System.Serializable]
     class PoolData
@@ -24,6 +24,10 @@ public class SpawnManager : MonoBehaviour
     float _delta;
     float _spawnInterval;
 
+    bool _isPause = false;
+    bool _isGameClear = false;
+    bool _isGameOver = false;
+
     private void Start()
     {
 
@@ -32,12 +36,18 @@ public class SpawnManager : MonoBehaviour
 
     void Update()
     {
-        _delta += Time.deltaTime;
-        if (_delta >= _spawnInterval)
+        if (!_isGameClear && !_isGameOver)
         {
-            _delta = 0;
-            _spawnInterval = Random.Range(_minInterval, _maxInterval);
-            Spawn();
+            if (!_isPause)
+            {
+                _delta += Time.deltaTime;
+                if (_delta >= _spawnInterval)
+                {
+                    _delta = 0;
+                    _spawnInterval = Random.Range(_minInterval, _maxInterval);
+                    Spawn();
+                }
+            }
         }
     }
 
@@ -67,5 +77,25 @@ public class SpawnManager : MonoBehaviour
                 return;
             }
         }
+    }
+
+    public void Pause()
+    {
+        _isPause = true;
+    }
+
+    public void Resume()
+    {
+        _isPause = false;
+    }
+
+    public void GameClear()
+    {
+        _isGameClear = true;
+    }
+
+    public void GameOver()
+    {
+        _isGameOver = true;
     }
 }

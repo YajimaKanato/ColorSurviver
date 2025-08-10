@@ -2,13 +2,17 @@ using UnityEngine;
 using ColorAttributes;
 
 [RequireComponent(typeof(CircleCollider2D))]
-public class TargetClassification : MonoBehaviour
+public class TargetClassification : MonoBehaviour, IPause, IGameEnd
 {
     [SerializeField] ColorAttribute _targetColor;
 
     CircleCollider2D _cc2d;
     GameObject _target;
     TargetBase _targetBase;
+
+    bool _isPause = false;
+    bool _isGameClear = false;
+    bool _isGameOver = false;
 
     private void Start()
     {
@@ -18,15 +22,18 @@ public class TargetClassification : MonoBehaviour
 
     private void Update()
     {
-        if (_target)
+        if (!_isPause && !_isGameClear && !_isGameOver)
         {
-            if (!_targetBase.IsCatched)
+            if (_target)
             {
-                if (_targetBase.ColorStatus.ColorAttribute == _targetColor)
+                if (!_targetBase.IsCatched)
                 {
-                    FindFirstObjectByType<ScoreManager>().AddScore(_targetBase.ColorStatus.ColorAttribute, _targetBase.Score);
-                    _targetBase.SuccessClassification();
-                    _target = null;
+                    if (_targetBase.ColorStatus.ColorAttribute == _targetColor)
+                    {
+                        FindFirstObjectByType<ScoreManager>().AddScore(_targetBase.ColorStatus.ColorAttribute, _targetBase.Score);
+                        _targetBase.SuccessClassification();
+                        _target = null;
+                    }
                 }
             }
         }
@@ -60,5 +67,25 @@ public class TargetClassification : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void Pause()
+    {
+        _isPause = true;
+    }
+
+    public void Resume()
+    {
+        _isPause = false;
+    }
+
+    public void GameClear()
+    {
+        _isGameClear = true;
+    }
+
+    public void GameOver()
+    {
+        _isGameOver = true;
     }
 }
