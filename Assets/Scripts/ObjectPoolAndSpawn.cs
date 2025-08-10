@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using ColorAttributes;
 
 /// <summary>
 /// 各プールにアタッチ
@@ -9,12 +10,18 @@ public class ObjectPoolAndSpawn : MonoBehaviour
     [SerializeField] int _maxPoolSize;
 
     [Header("Instantiate")]
+    [SerializeField] ColorAttribute _colorAttribute;
     [SerializeField] GameObject _prefab;
     [SerializeField] Vector3 _position;
     [SerializeField] Vector3 _rotation;
 
+    public ColorAttribute ColorAttribute { get { return _colorAttribute; } }
+
     /// <summary> 非アクティブのゲームオブジェクトを保管するためのキュー </summary>
     Queue<GameObject> _poolQueue;
+
+    int _spawnCount = 0;
+    public int SpawnCount {  get { return _spawnCount; } }
 
     private void Start()
     {
@@ -54,6 +61,7 @@ public class ObjectPoolAndSpawn : MonoBehaviour
     /// <param name="obj"> プールに返すオブジェクト</param>
     public void ReleaseToPool(GameObject obj)
     {
+        _spawnCount--;
         //プールがいっぱいかどうか
         if (_poolQueue.Count >= _maxPoolSize)
         {
@@ -73,6 +81,7 @@ public class ObjectPoolAndSpawn : MonoBehaviour
     /// </summary>
     public void Spawn()
     {
+        _spawnCount++;
         //オブジェクトを生成
         var spawn = GetGameObject(_prefab, _position, Quaternion.Euler(_rotation));
         spawn.transform.SetParent(this.transform);
