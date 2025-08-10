@@ -191,7 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _colorPalette: {fileID: 11400000, guid: 3c70ddcdbcca182448ce7899bebce55f, type: 2}
   _colorStatus: {fileID: 11400000, guid: a1a34593609bfd344a23059d7b1ebd08, type: 2}
-  _reverseColor: 3
+  _reverseColor: 7
   _catchOffset: {x: 0, y: -0.5, z: 0}
   _originalSpeed: 1
   _score: 100
