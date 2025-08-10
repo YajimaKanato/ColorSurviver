@@ -24,7 +24,9 @@ public class TargetClassification : MonoBehaviour
             {
                 if (_targetBase.ColorStatus.ColorAttribute == _targetColor)
                 {
+                    FindFirstObjectByType<ScoreManager>().AddScore(_targetBase.ColorStatus.ColorAttribute, _targetBase.Score);
                     _targetBase.SuccessClassification();
+                    _target = null;
                 }
             }
         }
@@ -40,6 +42,21 @@ public class TargetClassification : MonoBehaviour
                 if (_targetBase.IsCatched)
                 {
                     _target = collision.gameObject;
+                }
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (_target)
+        {
+            _targetBase = collision.gameObject.GetComponent<TargetBase>();
+            if (_targetBase)
+            {
+                if (_targetBase.IsCatched)
+                {
+                    _target = null;
                 }
             }
         }
