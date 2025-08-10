@@ -41,9 +41,12 @@ public class MouseAction : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             _sr.sprite = _handOpen;
-            _targetBase.IsCatched = false;
-            _target?.transform.SetParent(null);
-            _target = null;
+            if (_target)
+            {
+                _targetBase.IsCatched = false;
+                _target.transform.SetParent(null);
+                _target = null;
+            }
             _cc2d.enabled = false;
         }
     }

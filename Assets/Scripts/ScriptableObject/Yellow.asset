@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Yellow
   m_EditorClassIdentifier: 
   _colorAttribute: 2
-  _maxSpeed: 100
+  _maxSpeed: 7
   _minSpeed: 1

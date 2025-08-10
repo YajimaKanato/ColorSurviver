@@ -5,14 +5,21 @@ using ColorAttributes;
 /// 白地のオブジェクトにアタッチ
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D), typeof(CircleCollider2D))]
-public class TargetBase : MonoBehaviour, IColorChange
+public class TargetBase : MonoBehaviour
 {
     [SerializeField] ColorPallete _colorPalette;
     [SerializeField] ColorStatus _colorStatus;
+    [SerializeField] ColorAttribute _reverseColor;
     [SerializeField] Vector3 _catchOffset;
+    [SerializeField] float _originalSpeed = 1f;
+    [SerializeField] int _score = 100;
+    [SerializeField] int _colorlessValue = 4;
+
+    public int Score { get { return _score; } }
 
     Rigidbody2D _rb2d;
     CircleCollider2D _cc2d;
+    ObjectPoolAndSpawn _objectPool;
     public ColorStatus ColorStatus { get { return _colorStatus; } }
 
     /// <summary>
@@ -20,9 +27,9 @@ public class TargetBase : MonoBehaviour, IColorChange
     /// </summary>
     public ObjectPoolAndSpawn OPAS { get; set; }
 
-    Vector3 _direction;
-    float _theta;
-    float _speed;
+    protected Vector3 _direction;
+    protected float _theta;
+    protected float _speed;
     bool _isCatched = false;
     public bool IsCatched { get { return _isCatched; } set { _isCatched = value; } }
 
@@ -31,10 +38,7 @@ public class TargetBase : MonoBehaviour, IColorChange
     {
         if (_colorStatus)
         {
-            //動く速度と方向決め
-            _theta = Random.Range(0, 2 * Mathf.PI);
-            _direction = new Vector3(Mathf.Cos(_theta), Mathf.Sin(_theta));
-            _speed = Random.Range(_colorStatus.MinSpeed, _colorStatus.MaxSpeed);
+            MoveSetting();
 
             //諸々のセッティング
             _rb2d = GetComponent<Rigidbody2D>();
@@ -54,6 +58,17 @@ public class TargetBase : MonoBehaviour, IColorChange
         {
             Debug.LogWarning("ScriptableObject/ColorStatusが設定されていません");
         }
+
+        var reversePool = FindObjectsByType<ObjectPoolAndSpawn>(FindObjectsSortMode.None);
+        foreach (var pool in reversePool)
+        {
+            if (pool.ColorAttribute == _reverseColor)
+            {
+                _objectPool = pool;
+                Debug.Log(_colorStatus.ColorAttribute.ToString() + ":reverse=>" + pool.ColorAttribute);
+                break;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -63,18 +78,35 @@ public class TargetBase : MonoBehaviour, IColorChange
         {
             gameObject.transform.position = gameObject.transform.parent.position + _catchOffset;
         }
+
+        if (_objectPool.SpawnCount >= _colorlessValue)
+        {
+            ColorChange(true);
+        }
+        else
+        {
+            ColorChange(false);
+        }
     }
 
     private void FixedUpdate()
     {
         if (!_isCatched)
         {
-            _rb2d.linearVelocity = _direction * _speed;
+            _rb2d.linearVelocity = _direction * _speed * _originalSpeed;
         }
         else
         {
             _rb2d.linearVelocity = Vector3.zero;
         }
+    }
+
+    protected void MoveSetting()
+    {
+        //動く速度と方向決め
+        _theta = Random.Range(0, 2 * Mathf.PI);
+        _direction = new Vector3(Mathf.Cos(_theta), Mathf.Sin(_theta));
+        _speed = Random.Range(_colorStatus.MinSpeed, _colorStatus.MaxSpeed);
     }
 
     /// <summary>
@@ -92,9 +124,16 @@ public class TargetBase : MonoBehaviour, IColorChange
         }
     }
 
-    public void ColorChange(ColorAttribute color)
+    public void ColorChange(bool over)
     {
-
+        if (over)
+        {
+            gameObject.GetComponent<SpriteRenderer>().color = Color.clear;
+        }
+        else
+        {
+            ColorSetting();
+        }
     }
 
     public void SuccessClassification()
@@ -107,7 +146,7 @@ public class TargetBase : MonoBehaviour, IColorChange
     /// オブジェクトプールに返す関数
     /// オブジェクトが消える時に呼び出す
     /// </summary>
-    void ReleaseToPool()
+    protected void ReleaseToPool()
     {
         OPAS.ReleaseToPool(gameObject);
     }
