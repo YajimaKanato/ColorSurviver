@@ -21,11 +21,19 @@ public class PauseManager : MonoBehaviour,IGameEnd
                 {
                     if (!_isPause)
                     {
-                        obj.GetComponent<IPause>()?.Pause();
+                        var script = obj.GetComponents<IPause>();
+                        foreach (var obj2 in script)
+                        {
+                            obj2.Pause();
+                        }
                     }
                     else
                     {
-                        obj.GetComponent<IPause>()?.Resume();
+                        var script = obj.GetComponents<IPause>();
+                        foreach (var obj2 in script)
+                        {
+                            obj2.Resume();
+                        }
                     }
                 }
                 _isPause = !_isPause;
