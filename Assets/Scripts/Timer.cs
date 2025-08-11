@@ -2,7 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Timer : MonoBehaviour, IPause, IGameEnd
+public class Timer : MonoBehaviour, IPause, IGameControl
 {
     [SerializeField] float _timer = 60;
     [SerializeField] Text _text;
@@ -11,6 +11,7 @@ public class Timer : MonoBehaviour, IPause, IGameEnd
     bool _isPause = false;
     bool _isGameClear = false;
     bool _isGameOver = false;
+    bool _isGameStart = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,7 +22,7 @@ public class Timer : MonoBehaviour, IPause, IGameEnd
     // Update is called once per frame
     void Update()
     {
-        if (!_isPause && !_isGameClear && !_isGameOver)
+        if (_isGameStart && !_isPause && !_isGameClear && !_isGameOver)
         {
             if (_delta <= 0)
             {
@@ -44,7 +45,7 @@ public class Timer : MonoBehaviour, IPause, IGameEnd
         var pause = FindObjectsByType(typeof(GameObject), FindObjectsSortMode.None);
         foreach (var obj in pause)
         {
-            obj.GetComponent<IGameEnd>()?.GameClear();
+            obj.GetComponent<IGameControl>()?.GameClear();
         }
     }
 
@@ -58,7 +59,7 @@ public class Timer : MonoBehaviour, IPause, IGameEnd
         _isPause = false;
     }
 
-    void IGameEnd.GameClear()
+    void IGameControl.GameClear()
     {
 
     }
@@ -66,5 +67,10 @@ public class Timer : MonoBehaviour, IPause, IGameEnd
     public void GameOver()
     {
         _isGameOver = true;
+    }
+
+    public void GameStart()
+    {
+        _isGameStart = true;
     }
 }

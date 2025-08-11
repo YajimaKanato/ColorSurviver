@@ -6,7 +6,7 @@ using System.Collections;
 /// 白地のオブジェクトにアタッチ
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D), typeof(CircleCollider2D))]
-public class TargetBase : MonoBehaviour, IPause, IGameEnd
+public class TargetBase : MonoBehaviour, IPause, IGameControl
 {
     [SerializeField] ColorPallete _colorPalette;
     [SerializeField] ColorStatus _colorStatus;
@@ -55,8 +55,6 @@ public class TargetBase : MonoBehaviour, IPause, IGameEnd
             _cc2d = GetComponent<CircleCollider2D>();
             _animator = GetComponent<Animator>();
             _childAnim = transform.GetChild(0).GetComponent<Animator>();
-            _coroutine = MoveChange();
-            StartCoroutine(_coroutine);
             if (_colorPalette)
             {
                 ColorSetting();
@@ -245,5 +243,11 @@ public class TargetBase : MonoBehaviour, IPause, IGameEnd
     public void GameOver()
     {
         _isGameOver = true;
+    }
+
+    public void GameStart()
+    {
+        _coroutine = MoveChange();
+        StartCoroutine(_coroutine);
     }
 }

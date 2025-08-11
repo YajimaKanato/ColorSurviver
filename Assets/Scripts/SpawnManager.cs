@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// ÉvÅ[ÉãÇ…ê∂ê¨Çéwé¶
 /// </summary>
-public class SpawnManager : MonoBehaviour,IPause,IGameEnd
+public class SpawnManager : MonoBehaviour, IPause, IGameControl
 {
     [System.Serializable]
     class PoolData
@@ -27,6 +27,7 @@ public class SpawnManager : MonoBehaviour,IPause,IGameEnd
     bool _isPause = false;
     bool _isGameClear = false;
     bool _isGameOver = false;
+    bool _isGameStart = false;
 
     private void Start()
     {
@@ -36,7 +37,7 @@ public class SpawnManager : MonoBehaviour,IPause,IGameEnd
 
     void Update()
     {
-        if (!_isGameClear && !_isGameOver)
+        if (_isGameStart && !_isGameClear && !_isGameOver)
         {
             if (!_isPause)
             {
@@ -97,5 +98,10 @@ public class SpawnManager : MonoBehaviour,IPause,IGameEnd
     public void GameOver()
     {
         _isGameOver = true;
+    }
+
+    public void GameStart()
+    {
+        _isGameStart = true;
     }
 }

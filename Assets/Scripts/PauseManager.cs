@@ -1,7 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PauseManager : MonoBehaviour,IGameEnd
+public class PauseManager : MonoBehaviour,IGameControl
 {
     bool _isPause = false;
     bool _isGameClear = false;
@@ -22,17 +22,23 @@ public class PauseManager : MonoBehaviour,IGameEnd
                     if (!_isPause)
                     {
                         var script = obj.GetComponents<IPause>();
-                        foreach (var obj2 in script)
+                        if(script != null)
                         {
-                            obj2.Pause();
+                            foreach (var obj2 in script)
+                            {
+                                obj2.Pause();
+                            }
                         }
                     }
                     else
                     {
                         var script = obj.GetComponents<IPause>();
-                        foreach (var obj2 in script)
+                        if(script != null)
                         {
-                            obj2.Resume();
+                            foreach (var obj2 in script)
+                            {
+                                obj2.Resume();
+                            }
                         }
                     }
                 }
@@ -57,5 +63,10 @@ public class PauseManager : MonoBehaviour,IGameEnd
     public void GameOver()
     {
         _isGameOver = true;
+    }
+
+    public void GameStart()
+    {
+
     }
 }
