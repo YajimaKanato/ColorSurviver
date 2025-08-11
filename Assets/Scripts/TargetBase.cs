@@ -34,7 +34,6 @@ public class TargetBase : MonoBehaviour, IPause, IGameEnd
     Vector3 _direction;
     float _theta;
     float _speed;
-    float _cos, _sin;
     float _sqrt2;
     float _delta;
     bool _isCatched = false;
@@ -181,30 +180,24 @@ public class TargetBase : MonoBehaviour, IPause, IGameEnd
                 _delta = 0;
                 MoveSetting();
 
-                _cos = Vector3.Dot(_direction, Vector3.right);
-                _sin = Mathf.Sqrt(1 - _cos * _cos);
                 _sqrt2 = Mathf.Sqrt(2);
-                if (1 / _sqrt2 <= _cos)
+                if (1 / _sqrt2 <= Vector3.Dot(_direction, Vector3.right))
                 {
-                    Debug.Log("Right");
                     _animator.SetTrigger("Right");
                     _childAnim.SetTrigger("Right");
                 }
-                else if (_cos <= -1 / _sqrt2 && _cos <= 1 / _sqrt2 && _sin >= 0)
+                else if (1 / _sqrt2 <= Vector3.Dot(_direction, Vector3.up))
                 {
-                    Debug.Log("Up");
                     _animator.SetTrigger("Up");
                     _childAnim.SetTrigger("Up");
                 }
-                else if (_cos <= -1 / _sqrt2 && _cos <= 1 / _sqrt2 && _sin <= 0)
+                else if (1 / _sqrt2 <= Vector3.Dot(_direction, Vector3.down))
                 {
-                    Debug.Log("Down");
                     _animator.SetTrigger("Down");
                     _childAnim.SetTrigger("Down");
                 }
-                else if (_cos <= -1 / _sqrt2)
+                else if (1 / _sqrt2 <= Vector3.Dot(_direction, Vector3.left))
                 {
-                    Debug.Log("Left");
                     _animator.SetTrigger("Left");
                     _childAnim.SetTrigger("Left");
                 }
