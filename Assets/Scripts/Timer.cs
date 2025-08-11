@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour, IPause, IGameEnd
 {
     [SerializeField] float _timer = 60;
-    Text _text;
+    [SerializeField] Text _text;
 
     float _delta = 0;
     bool _isPause = false;
@@ -15,7 +15,6 @@ public class Timer : MonoBehaviour, IPause, IGameEnd
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _text = GetComponent<Text>();
         _delta = _timer;
     }
 

@@ -9,7 +9,8 @@ public class ScoreManager : MonoBehaviour
 
     static Dictionary<ColorAttribute, int> _score;
     public static Dictionary<ColorAttribute, int> Score { get { return _score; } }
-    int _totalScore = 0;
+    static int _totalScore = 0;
+    public static int TotalScore { get { return _totalScore; } }
 
     private void Start()
     {
