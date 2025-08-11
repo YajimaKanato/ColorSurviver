@@ -2,7 +2,7 @@ using UnityEngine;
 using ColorAttributes;
 
 [RequireComponent(typeof(CircleCollider2D))]
-public class TargetClassification : MonoBehaviour, IPause, IGameEnd
+public class TargetClassification : MonoBehaviour, IPause, IGameControl
 {
     [SerializeField] ColorAttribute _targetColor;
 
@@ -87,5 +87,10 @@ public class TargetClassification : MonoBehaviour, IPause, IGameEnd
     public void GameOver()
     {
         _isGameOver = true;
+    }
+
+    public void GameStart()
+    {
+
     }
 }

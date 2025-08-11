@@ -3,7 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CountDown : MonoBehaviour, IPause,IGameEnd
+public class CountDown : MonoBehaviour, IPause, IGameControl
 {
     [SerializeField] int _maxTargetCount = 20;
     [SerializeField] float _countDown = 10;
@@ -16,6 +16,7 @@ public class CountDown : MonoBehaviour, IPause,IGameEnd
 
     bool _isGameOver = false;
     bool _isGameClear = false;
+    bool _isGameStart = false;
 
     private void Start()
     {
@@ -25,7 +26,7 @@ public class CountDown : MonoBehaviour, IPause,IGameEnd
 
     private void Update()
     {
-        if (!_isGameClear)
+        if (_isGameStart && !_isGameClear)
         {
             GetTargetCount();
 
@@ -85,7 +86,7 @@ public class CountDown : MonoBehaviour, IPause,IGameEnd
         var pause = FindObjectsByType(typeof(GameObject), FindObjectsSortMode.None);
         foreach (var obj in pause)
         {
-            obj.GetComponent<IGameEnd>()?.GameOver();
+            obj.GetComponent<IGameControl>()?.GameOver();
         }
     }
 
@@ -99,7 +100,7 @@ public class CountDown : MonoBehaviour, IPause,IGameEnd
 
     public void Resume()
     {
-        if(_coroutine != null)
+        if (_coroutine != null)
         {
             StartCoroutine(_coroutine);
         }
@@ -113,8 +114,13 @@ public class CountDown : MonoBehaviour, IPause,IGameEnd
         }
     }
 
-    void IGameEnd.GameOver()
+    void IGameControl.GameOver()
     {
 
+    }
+
+    public void GameStart()
+    {
+        _isGameStart = true;
     }
 }

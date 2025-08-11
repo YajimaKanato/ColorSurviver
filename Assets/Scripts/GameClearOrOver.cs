@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameClearOrOver : MonoBehaviour, IGameEnd
+public class GameClearOrOver : MonoBehaviour, IGameControl
 {
     Image _image;
 
@@ -19,6 +19,11 @@ public class GameClearOrOver : MonoBehaviour, IGameEnd
     public void GameOver()
     {
         StartCoroutine(Fade("GameOver"));
+    }
+
+    public void GameStart()
+    {
+
     }
 
     IEnumerator Fade(string name)
@@ -48,11 +53,5 @@ public class GameClearOrOver : MonoBehaviour, IGameEnd
     void Start()
     {
         _image = GetComponent<Image>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }
