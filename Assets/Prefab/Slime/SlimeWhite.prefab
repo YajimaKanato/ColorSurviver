@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 6974719968537050251}
   - component: {fileID: 5667420760296209296}
   - component: {fileID: 4838414084735491634}
-  - component: {fileID: 7454340325847165389}
+  - component: {fileID: 519008882010318148}
   m_Layer: 0
-  m_Name: Blue
+  m_Name: SlimeWhite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -177,7 +177,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.44
---- !u!114 &7454340325847165389
+--- !u!114 &519008882010318148
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,16 +186,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 8322070429242800915}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b65a68025272d894380446e85eb3773e, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c09283c08ad20d4f948efb2c287b6ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _colorPalette: {fileID: 11400000, guid: 3c70ddcdbcca182448ce7899bebce55f, type: 2}
-  _colorStatus: {fileID: 11400000, guid: b039545eb4744d74ab299c54c4056728, type: 2}
-  _reverseColor: 7
+  _colorStatus: {fileID: 11400000, guid: 38902cea803cecb40b17df49b4ed8240, type: 2}
+  _reverseColor: 5
   _catchOffset: {x: 0, y: -0.5, z: 0}
   _originalSpeed: 1
   _score: 100
   _colorlessValue: 4
+  _maxMoveInterval: 2
+  _minMoveInterval: 1
 --- !u!1 &8993413699796156921
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,7 +276,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 277095997, guid: 61396507f04fb91458f1de203cb5b214, type: 3}
-  m_Color: {r: 0, g: 0.9873891, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

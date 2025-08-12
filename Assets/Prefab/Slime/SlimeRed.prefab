@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 6974719968537050251}
   - component: {fileID: 5667420760296209296}
   - component: {fileID: 4838414084735491634}
-  - component: {fileID: 7454340325847165389}
+  - component: {fileID: 6023476180298911724}
   m_Layer: 0
-  m_Name: Red
+  m_Name: SlimeRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -177,7 +177,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.44
---- !u!114 &7454340325847165389
+--- !u!114 &6023476180298911724
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,7 +186,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8322070429242800915}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b65a68025272d894380446e85eb3773e, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c09283c08ad20d4f948efb2c287b6ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _colorPalette: {fileID: 11400000, guid: 3c70ddcdbcca182448ce7899bebce55f, type: 2}
@@ -196,6 +196,8 @@ MonoBehaviour:
   _originalSpeed: 1
   _score: 100
   _colorlessValue: 4
+  _maxMoveInterval: 2
+  _minMoveInterval: 1
 --- !u!1 &8993413699796156921
 GameObject:
   m_ObjectHideFlags: 0
