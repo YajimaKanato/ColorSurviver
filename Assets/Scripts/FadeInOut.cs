@@ -15,9 +15,14 @@ public class FadeInOut : MonoBehaviour
 
     void Start()
     {
+        _image = GetComponent<Image>();
         if (_fadeIn)
         {
             StartCoroutine(FadeIn());
+        }
+        else
+        {
+            gameObject.SetActive(false);
         }
     }
 
@@ -32,6 +37,7 @@ public class FadeInOut : MonoBehaviour
     IEnumerator FadeIn()
     {
         _delta = 1;
+        _fadeTime = 1;
         while (true)
         {
             _delta -= Time.deltaTime;
@@ -55,6 +61,7 @@ public class FadeInOut : MonoBehaviour
     IEnumerator FadeOut(string name)
     {
         _delta = 0;
+        _fadeTime = 0;
         while (true)
         {
             _delta += Time.deltaTime;
