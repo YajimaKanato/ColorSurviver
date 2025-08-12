@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ResultManager : MonoBehaviour
+public class ResultManagerB : MonoBehaviour
 {
     Text _text;
 
@@ -9,6 +9,7 @@ public class ResultManager : MonoBehaviour
     void Start()
     {
         _text = GetComponent<Text>();
-        _text.text = "Score : " + ScoreManager.TotalScore;
+        _text.text = "Score : " + ScoreManagerB.TotalScore;
+        Debug.Log("B:Score");
     }
 }
