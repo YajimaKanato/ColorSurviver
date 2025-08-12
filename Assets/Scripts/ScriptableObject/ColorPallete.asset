@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _colorDataList:
   - _colorAttribute: 0
-    _color: {r: 1, g: 0, b: 0, a: 1}
+    _color: {r: 1, g: 0, b: 0, a: 0.50980395}
   - _colorAttribute: 5
-    _color: {r: 0, g: 0, b: 1, a: 1}
+    _color: {r: 0, g: 0, b: 1, a: 0.50980395}
   - _colorAttribute: 3
-    _color: {r: 0, g: 1, b: 0, a: 1}
+    _color: {r: 0, g: 1, b: 0, a: 0.57254905}
   - _colorAttribute: 2
-    _color: {r: 1, g: 0.9887575, b: 0, a: 1}
+    _color: {r: 0.9830606, g: 1, b: 0, a: 0.53333336}
+  - _colorAttribute: 7
+    _color: {r: 1, g: 1, b: 1, a: 1}
