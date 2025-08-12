@@ -2,7 +2,7 @@ using UnityEngine;
 using ColorAttributes;
 
 [RequireComponent(typeof(CircleCollider2D))]
-public class TargetClassification : MonoBehaviour, IPause, IGameControl
+public class TargetClassificationS : MonoBehaviour, IPause, IGameControl
 {
     [SerializeField] ColorAttribute _targetColor;
 
@@ -30,7 +30,7 @@ public class TargetClassification : MonoBehaviour, IPause, IGameControl
                 {
                     if (_targetBase.ColorStatus.ColorAttribute == _targetColor)
                     {
-                        FindFirstObjectByType<ScoreManager>().AddScore(_targetBase.ColorStatus.ColorAttribute, _targetBase.Score);
+                        FindFirstObjectByType<ScoreManagerS>().AddScore(_targetBase.ColorStatus.ColorAttribute, _targetBase.Score);
                         _targetBase.SuccessClassification();
                         _target = null;
                     }
