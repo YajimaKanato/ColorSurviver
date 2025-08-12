@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameClearOrOver : MonoBehaviour, IGameControl
+public class GameClearOrOverB : MonoBehaviour, IGameControl
 {
     Image _image;
 
@@ -12,12 +12,12 @@ public class GameClearOrOver : MonoBehaviour, IGameControl
 
     public void GameClear()
     {
-        StartCoroutine(Fade("GameClear"));
+        StartCoroutine(FadeB("GameClearB"));
     }
 
     public void GameOver()
     {
-        StartCoroutine(Fade("GameOver"));
+        StartCoroutine(FadeB("GameOverB"));
     }
 
     public void GameStart()
@@ -25,7 +25,7 @@ public class GameClearOrOver : MonoBehaviour, IGameControl
 
     }
 
-    IEnumerator Fade(string name)
+    IEnumerator FadeB(string name)
     {
         _delta = 0;
         while (true)

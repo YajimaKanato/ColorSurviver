@@ -27,7 +27,10 @@ public class StartFadeIn : MonoBehaviour
             _delta -= Time.deltaTime;
             if (_delta <= 0)
             {
-                _obj.GetComponent<StartCount>().CoroutineStart();
+                if (_obj)
+                {
+                    _obj.GetComponent<StartCount>()?.CoroutineStart();
+                }
                 gameObject.SetActive(false);
                 yield break;
             }
