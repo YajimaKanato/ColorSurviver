@@ -34,7 +34,7 @@ public class TargetBase : MonoBehaviour, IPause, IGameControl
     float _theta;
     float _speed;
     float _sqrt2;
-    float _delta;
+    float _delta = 1;
     bool _isCatched = false;
     public bool IsCatched { get { return _isCatched; } set { _isCatched = value; } }
 
@@ -53,6 +53,8 @@ public class TargetBase : MonoBehaviour, IPause, IGameControl
             _rb2d.freezeRotation = true;
             _animator = GetComponent<Animator>();
             _childAnim = transform.GetChild(0).GetComponent<Animator>();
+            _coroutine = MoveChange();
+            StartCoroutine(_coroutine);
             if (_colorPalette)
             {
                 ColorSetting();
@@ -236,7 +238,6 @@ public class TargetBase : MonoBehaviour, IPause, IGameControl
 
     public void GameStart()
     {
-        _coroutine = MoveChange();
-        StartCoroutine(_coroutine);
+
     }
 }
