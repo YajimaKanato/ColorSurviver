@@ -19,7 +19,6 @@ public class TargetBase : MonoBehaviour, IPause, IGameControl
     public int Score { get { return _score; } }
 
     Rigidbody2D _rb2d;
-    CircleCollider2D _cc2d;
     ObjectPoolAndSpawn _objectPool;
     Animator _animator;
     Animator _childAnim;
@@ -52,7 +51,6 @@ public class TargetBase : MonoBehaviour, IPause, IGameControl
             _rb2d = GetComponent<Rigidbody2D>();
             _rb2d.gravityScale = 0;
             _rb2d.freezeRotation = true;
-            _cc2d = GetComponent<CircleCollider2D>();
             _animator = GetComponent<Animator>();
             _childAnim = transform.GetChild(0).GetComponent<Animator>();
             if (_colorPalette)
@@ -155,7 +153,6 @@ public class TargetBase : MonoBehaviour, IPause, IGameControl
 
     public void SuccessClassification()
     {
-
         ReleaseToPool();
     }
 
@@ -206,14 +203,6 @@ public class TargetBase : MonoBehaviour, IPause, IGameControl
                 yield break;
             }
             yield return null;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Destroy")
-        {
-            ReleaseToPool();
         }
     }
 

@@ -52,6 +52,16 @@ public class TargetClassification : MonoBehaviour, IPause, IGameControl
                 }
             }
         }
+        else
+        {
+            if (_targetBase)
+            {
+                if (!_targetBase.IsCatched)
+                {
+                    _target = null;
+                }
+            }
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

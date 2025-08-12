@@ -31,7 +31,6 @@ public class SpawnManager : MonoBehaviour, IPause, IGameControl
 
     private void Start()
     {
-
         _spawnInterval = Random.Range(_minInterval, _maxInterval);
     }
 
