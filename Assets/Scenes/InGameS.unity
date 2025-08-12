@@ -1358,7 +1358,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 874111657563484770, guid: 15e954db554fc464da1a353e206c96fe, type: 3}
       propertyPath: _maxInterval
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 874111657563484770, guid: 15e954db554fc464da1a353e206c96fe, type: 3}
       propertyPath: _minInterval
@@ -1486,7 +1486,7 @@ PrefabInstance:
       objectReference: {fileID: 1575262040}
     - target: {fileID: 4318423676816607781, guid: 0e26808c38818944693d3676b95ad05d, type: 3}
       propertyPath: _timer
-      value: 100
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 5138509233132318266, guid: 0e26808c38818944693d3676b95ad05d, type: 3}
       propertyPath: _scoreText
@@ -1542,7 +1542,7 @@ PrefabInstance:
       objectReference: {fileID: 536945590}
     - target: {fileID: 8724079864289091774, guid: 0e26808c38818944693d3676b95ad05d, type: 3}
       propertyPath: _maxTargetCount
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
