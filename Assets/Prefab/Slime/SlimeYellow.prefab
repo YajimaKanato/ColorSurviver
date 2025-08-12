@@ -193,11 +193,11 @@ MonoBehaviour:
   _colorStatus: {fileID: 11400000, guid: dff94a70ff6a8d04691e93351791ecab, type: 2}
   _reverseColor: 0
   _catchOffset: {x: 0, y: -0.5, z: 0}
-  _originalSpeed: 1
-  _score: 100
+  _originalSpeed: 1.2
+  _score: 150
   _colorlessValue: 4
-  _maxMoveInterval: 2
-  _minMoveInterval: 1
+  _maxMoveInterval: 3
+  _minMoveInterval: 0.5
 --- !u!1 &8993413699796156921
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,7 +276,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 277095997, guid: 61396507f04fb91458f1de203cb5b214, type: 3}
-  m_Color: {r: 1, g: 0.8090998, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.8090998, b: 0, a: 0.36862746}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
