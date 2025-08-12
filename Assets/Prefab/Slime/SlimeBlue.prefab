@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1088124748, guid: 86972a112e52e6a4b9d1eec25d0333c6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5137255}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -195,9 +195,9 @@ MonoBehaviour:
   _catchOffset: {x: 0, y: -0.5, z: 0}
   _originalSpeed: 1
   _score: 100
-  _colorlessValue: 4
-  _maxMoveInterval: 2
-  _minMoveInterval: 1
+  _colorlessValue: 3
+  _maxMoveInterval: 0.5
+  _minMoveInterval: 0.2
 --- !u!1 &8993413699796156921
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,7 +276,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 277095997, guid: 61396507f04fb91458f1de203cb5b214, type: 3}
-  m_Color: {r: 0, g: 0.9873891, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.9873891, b: 1, a: 0.3529412}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
