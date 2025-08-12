@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameClearOrOver : MonoBehaviour, IGameControl
@@ -34,7 +33,7 @@ public class GameClearOrOver : MonoBehaviour, IGameControl
             _delta += Time.deltaTime;
             if (_delta >= 1.0f)
             {
-                SceneManager.LoadScene(name);
+                SceneChange.ChangeScene(name);
                 yield break;
             }
             else

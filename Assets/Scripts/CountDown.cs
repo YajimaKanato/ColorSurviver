@@ -14,7 +14,6 @@ public class CountDown : MonoBehaviour, IPause, IGameControl
     int _currentTargetCount = 0;
     int _count;
 
-    bool _isGameOver = false;
     bool _isGameClear = false;
     bool _isGameStart = false;
 
@@ -86,7 +85,11 @@ public class CountDown : MonoBehaviour, IPause, IGameControl
         var pause = FindObjectsByType(typeof(GameObject), FindObjectsSortMode.None);
         foreach (var obj in pause)
         {
-            obj.GetComponent<IGameControl>()?.GameOver();
+            var script = obj.GetComponents<IGameControl>();
+            foreach (var g in script)
+            {
+                g.GameOver();
+            }
         }
     }
 

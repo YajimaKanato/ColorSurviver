@@ -21,17 +21,22 @@ public class StartCount : MonoBehaviour, IPause
     void Start()
     {
         _text = GetComponent<Text>();
-        _text.text = "" + (_count - 1);
+        _text.text = "";
         _size = _text.fontSize;
         _defSize = _text.fontSize;
         _color = _text.color;
         _defColor = _text.color;
+    }
+
+    public void CoroutineStart()
+    {
         _coroutine = CountDownCoroutine();
         StartCoroutine(_coroutine);
     }
 
     IEnumerator CountDownCoroutine()
     {
+        _text.text = "" + (_count - 1);
         while (true)
         {
             if (_count <= 0)
