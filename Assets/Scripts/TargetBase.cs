@@ -6,15 +6,17 @@ using System.Collections;
 /// 白地のオブジェクトにアタッチ
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D), typeof(CircleCollider2D))]
-public class TargetBase : MonoBehaviour, IPause, IGameControl
+public abstract class TargetBase : MonoBehaviour, IPause, IGameControl
 {
     [SerializeField] ColorPallete _colorPalette;
-    [SerializeField] ColorStatus _colorStatus;
+    [SerializeField] protected ColorStatus _colorStatus;
     [SerializeField] ColorAttribute _reverseColor;
     [SerializeField] Vector3 _catchOffset;
     [SerializeField] float _originalSpeed = 1f;
     [SerializeField] int _score = 100;
     [SerializeField] int _colorlessValue = 4;
+    [SerializeField] float _maxMoveInterval = 2;
+    [SerializeField] float _minMoveInterval = 1;
 
     public int Score { get { return _score; } }
 
@@ -30,9 +32,9 @@ public class TargetBase : MonoBehaviour, IPause, IGameControl
     public ObjectPoolAndSpawn OPAS { get; set; }
 
     IEnumerator _coroutine;
-    Vector3 _direction;
-    float _theta;
-    float _speed;
+    protected Vector3 _direction;
+    protected float _theta;
+    protected float _speed;
     float _sqrt2;
     float _delta = 1;
     bool _isCatched = false;
@@ -118,13 +120,7 @@ public class TargetBase : MonoBehaviour, IPause, IGameControl
         }
     }
 
-    void MoveSetting()
-    {
-        //動く速度と方向決め
-        _theta = Random.Range(0, 2 * Mathf.PI);
-        _direction = new Vector3(Mathf.Cos(_theta), Mathf.Sin(_theta));
-        _speed = Random.Range(_colorStatus.MinSpeed, _colorStatus.MaxSpeed);
-    }
+    protected abstract void MoveSetting();
 
     /// <summary>
     /// 色を変える関数
@@ -169,10 +165,11 @@ public class TargetBase : MonoBehaviour, IPause, IGameControl
 
     IEnumerator MoveChange()
     {
+        float moveInterval = Random.Range(_minMoveInterval, _maxMoveInterval);
         while (true)
         {
             _delta += Time.deltaTime;
-            if (_delta >= 1.0)
+            if (_delta >= moveInterval)
             {
                 _delta = 0;
                 MoveSetting();
