@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 9116584201428208524}
   - component: {fileID: 7635996503685042165}
   - component: {fileID: 8808663755132036143}
-  - component: {fileID: 3812437193874330465}
+  - component: {fileID: -5104517155215080615}
   m_Layer: 0
   m_Name: BatBlue
   m_TagString: Untagged
@@ -287,7 +287,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 1
---- !u!114 &3812437193874330465
+--- !u!114 &-5104517155215080615
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -296,13 +296,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 6791956437205983905}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b65a68025272d894380446e85eb3773e, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e0d43ad6d7061347afbb41fec854d36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _colorPalette: {fileID: 11400000, guid: 3c70ddcdbcca182448ce7899bebce55f, type: 2}
   _colorStatus: {fileID: 11400000, guid: b039545eb4744d74ab299c54c4056728, type: 2}
   _reverseColor: 7
   _catchOffset: {x: 0, y: -0.5, z: 0}
-  _originalSpeed: 1
+  _originalSpeed: 2
   _score: 100
   _colorlessValue: 4
+  _maxMoveInterval: 1
+  _minMoveInterval: 0.5
