@@ -562,7 +562,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: f13bc41361ec63a46872904f1660e98f, type: 3}
     m_FontSize: 43
     m_FontStyle: 0
     m_BestFit: 0
@@ -574,7 +574,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Title
+  m_Text: "\u30BF\u30A4\u30C8\u30EB"
 --- !u!222 &515772653
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -792,6 +792,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 432262941}
     m_Modifications:
+    - target: {fileID: 700013198595481700, guid: f338de4fefc12b6498fb4b927d7c3ed4, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: f13bc41361ec63a46872904f1660e98f, type: 3}
     - target: {fileID: 1809988336030826715, guid: f338de4fefc12b6498fb4b927d7c3ed4, type: 3}
       propertyPath: m_Name
       value: Result
@@ -858,11 +862,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7246941658568094451, guid: f338de4fefc12b6498fb4b927d7c3ed4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 520
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 7246941658568094451, guid: f338de4fefc12b6498fb4b927d7c3ed4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 120
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 7246941658568094451, guid: f338de4fefc12b6498fb4b927d7c3ed4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
