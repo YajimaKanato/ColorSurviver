@@ -328,6 +328,8 @@ MonoBehaviour:
     _se: {fileID: 8300000, guid: 70e02441ad3cd8f488092b6a4933e446, type: 3}
   - _actionName: Button
     _se: {fileID: 8300000, guid: 5ed9970e17bfee943a6dff056dc3a9d0, type: 3}
+  - _actionName: Catch
+    _se: {fileID: 8300000, guid: 4fb135d3c45ee7343ba34122f8adc35f, type: 3}
 --- !u!4 &158143177
 Transform:
   m_ObjectHideFlags: 0
@@ -1455,7 +1457,7 @@ AudioSource:
   m_GameObject: {fileID: 1539519705}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 8462426621023030416, guid: 18c95ef13a34d8045b28cc7808f3279d, type: 2}
   m_audioClip: {fileID: 8300000, guid: 1656023d6a587c047ae08abbde0c8ea4, type: 3}
   m_Resource: {fileID: 8300000, guid: 1656023d6a587c047ae08abbde0c8ea4, type: 3}
   m_PlayOnAwake: 1
