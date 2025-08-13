@@ -66,12 +66,12 @@ public class CountDown : MonoBehaviour, IPause, IGameControl
         {
             if (_count <= 0)
             {
-                _countDownText.text = "Game Over";
                 GameOver();
                 yield break;
             }
             else
             {
+                SEManager.SEPlay("CountDown");
                 _countDownText.text = "" + _count;
                 yield return wait;
                 _count--;
