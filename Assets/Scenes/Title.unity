@@ -320,10 +320,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _seData:
-  - _actionName: 
-    _se: {fileID: 0}
-  - _actionName: 
-    _se: {fileID: 0}
+  - _actionName: haveany
+    _se: {fileID: 8300000, guid: 4fb135d3c45ee7343ba34122f8adc35f, type: 3}
+  - _actionName: CountDown
+    _se: {fileID: 8300000, guid: 19ee23220d478354ca29f732069ff0d0, type: 3}
+  - _actionName: putslime
+    _se: {fileID: 8300000, guid: 70e02441ad3cd8f488092b6a4933e446, type: 3}
+  - _actionName: Button
+    _se: {fileID: 8300000, guid: 5ed9970e17bfee943a6dff056dc3a9d0, type: 3}
 --- !u!4 &158143177
 Transform:
   m_ObjectHideFlags: 0
@@ -1388,23 +1392,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneData:
   - _sceneName: Title
-    _clip: {fileID: 0}
+    _clip: {fileID: 8300000, guid: 1656023d6a587c047ae08abbde0c8ea4, type: 3}
   - _sceneName: Credit
-    _clip: {fileID: 0}
+    _clip: {fileID: 8300000, guid: aca637c4a40dc7549bbbf96d79f8741a, type: 3}
   - _sceneName: Info
-    _clip: {fileID: 0}
-  - _sceneName: InGame
-    _clip: {fileID: 0}
+    _clip: {fileID: 8300000, guid: 902138b17894be04ebc7177bc3b181fa, type: 3}
+  - _sceneName: InGameS
+    _clip: {fileID: 8300000, guid: 225c9911d26cb0547821216ff86e6f1f, type: 3}
   - _sceneName: InGameB
-    _clip: {fileID: 0}
+    _clip: {fileID: 8300000, guid: be5e40e3ac388f14da31cab7fe003cfc, type: 3}
   - _sceneName: GameClearS
-    _clip: {fileID: 0}
+    _clip: {fileID: 8300000, guid: 384e5ad34156bb542883c601929590da, type: 3}
   - _sceneName: GameClearB
-    _clip: {fileID: 0}
+    _clip: {fileID: 8300000, guid: 384e5ad34156bb542883c601929590da, type: 3}
   - _sceneName: GameOverS
-    _clip: {fileID: 0}
+    _clip: {fileID: 8300000, guid: 0357bbc0dbb545e4a86dca0e91c2cdef, type: 3}
   - _sceneName: GameOverB
-    _clip: {fileID: 0}
+    _clip: {fileID: 8300000, guid: 0357bbc0dbb545e4a86dca0e91c2cdef, type: 3}
 --- !u!82 &1539519707
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1415,8 +1419,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 1656023d6a587c047ae08abbde0c8ea4, type: 3}
+  m_Resource: {fileID: 8300000, guid: 1656023d6a587c047ae08abbde0c8ea4, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
