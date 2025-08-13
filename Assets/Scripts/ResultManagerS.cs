@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using unityroom.Api;
 
 public class ResultManagerS : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class ResultManagerS : MonoBehaviour
     {
         _text = GetComponent<Text>();
         _text.text = "Score : " + ScoreManagerS.TotalScore;
+        UnityroomApiClient.Instance.SendScore(1, ScoreManagerS.TotalScore, ScoreboardWriteMode.Always);
         Debug.Log("S:Score");
     }
 }

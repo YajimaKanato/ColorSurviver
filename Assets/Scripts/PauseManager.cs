@@ -3,10 +3,17 @@ using UnityEngine;
 
 public class PauseManager : MonoBehaviour,IGameControl
 {
+    [SerializeField] GameObject _pause;
+
     bool _isPause = false;
     bool _isGameClear = false;
     bool _isGameOver = false;
-    
+
+
+    private void Start()
+    {
+        _pause.SetActive(false);
+    }
 
     // Update is called once per frame
     void Update()
@@ -21,6 +28,7 @@ public class PauseManager : MonoBehaviour,IGameControl
                 {
                     if (!_isPause)
                     {
+                        _pause.SetActive(true);
                         var script = obj.GetComponents<IPause>();
                         if(script != null)
                         {
@@ -32,6 +40,7 @@ public class PauseManager : MonoBehaviour,IGameControl
                     }
                     else
                     {
+                        _pause.SetActive(false);
                         var script = obj.GetComponents<IPause>();
                         if(script != null)
                         {
@@ -43,14 +52,6 @@ public class PauseManager : MonoBehaviour,IGameControl
                     }
                 }
                 _isPause = !_isPause;
-                if (_isPause)
-                {
-                    Debug.Log("Pause");
-                }
-                else
-                {
-                    Debug.Log("Resume");
-                }
             }
         }
     }
