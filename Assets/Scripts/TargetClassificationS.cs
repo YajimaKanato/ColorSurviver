@@ -30,6 +30,7 @@ public class TargetClassificationS : MonoBehaviour, IPause, IGameControl
                 {
                     if (_targetBase.ColorStatus.ColorAttribute == _targetColor)
                     {
+                        SEManager.SEPlay("PutSlime");
                         FindFirstObjectByType<ScoreManagerS>().AddScore(_targetBase.ColorStatus.ColorAttribute, _targetBase.Score);
                         _targetBase.SuccessClassification();
                         _target = null;

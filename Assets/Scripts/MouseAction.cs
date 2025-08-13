@@ -43,6 +43,7 @@ public class MouseAction : MonoBehaviour, IPause, IGameControl
 
                 if (Input.GetMouseButtonDown(0))
                 {
+                    SEManager.SEPlay("Catch");
                     _sr.sprite = _handClose;
                     StartCoroutine(ColliderCoroutine());
                 }

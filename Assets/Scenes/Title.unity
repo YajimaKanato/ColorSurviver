@@ -320,14 +320,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _seData:
-  - _actionName: putBat
+  - _actionName: PutBat
     _se: {fileID: 8300000, guid: 8c258dca7e08fb1438113b0b75348f71, type: 3}
   - _actionName: CountDown
     _se: {fileID: 8300000, guid: 19ee23220d478354ca29f732069ff0d0, type: 3}
-  - _actionName: putslime
+  - _actionName: PutSlime
     _se: {fileID: 8300000, guid: 70e02441ad3cd8f488092b6a4933e446, type: 3}
   - _actionName: Button
     _se: {fileID: 8300000, guid: 5ed9970e17bfee943a6dff056dc3a9d0, type: 3}
+  - _actionName: Catch
+    _se: {fileID: 8300000, guid: 4fb135d3c45ee7343ba34122f8adc35f, type: 3}
 --- !u!4 &158143177
 Transform:
   m_ObjectHideFlags: 0
@@ -933,6 +935,18 @@ MonoBehaviour:
           m_StringArgument: Info
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 158143176}
+        m_TargetAssemblyTypeName: SEManager, Assembly-CSharp
+        m_MethodName: SEPlay
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Button
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &839909914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1157,6 +1171,18 @@ MonoBehaviour:
           m_StringArgument: InGameS
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 158143176}
+        m_TargetAssemblyTypeName: SEManager, Assembly-CSharp
+        m_MethodName: SEPlay
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Button
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1178229955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1323,6 +1349,18 @@ MonoBehaviour:
           m_StringArgument: Credit
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 158143176}
+        m_TargetAssemblyTypeName: SEManager, Assembly-CSharp
+        m_MethodName: SEPlay
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Button
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1476397957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1419,7 +1457,7 @@ AudioSource:
   m_GameObject: {fileID: 1539519705}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 8462426621023030416, guid: 18c95ef13a34d8045b28cc7808f3279d, type: 2}
   m_audioClip: {fileID: 8300000, guid: 1656023d6a587c047ae08abbde0c8ea4, type: 3}
   m_Resource: {fileID: 8300000, guid: 1656023d6a587c047ae08abbde0c8ea4, type: 3}
   m_PlayOnAwake: 1
@@ -1702,6 +1740,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: InGameB
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 158143176}
+        m_TargetAssemblyTypeName: SEManager, Assembly-CSharp
+        m_MethodName: SEPlay
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Button
           m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &2003544362

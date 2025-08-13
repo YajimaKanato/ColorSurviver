@@ -1674,6 +1674,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 783825878076301190, guid: c6ebeadce9de41e4da37cc140f23c523, type: 3}
   m_PrefabInstance: {fileID: 8523141917842417984}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1819359866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819359865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9727a023d7096e41a5173e434a79491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1975497047
 GameObject:
   m_ObjectHideFlags: 0
@@ -1969,7 +1981,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4462942384248522324, guid: 218a97e9ff208dc488c1e62ba687c1fd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2081,6 +2093,14 @@ PrefabInstance:
       value: Title
       objectReference: {fileID: 0}
     - target: {fileID: 3131509648082237818, guid: c6ebeadce9de41e4da37cc140f23c523, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131509648082237818, guid: c6ebeadce9de41e4da37cc140f23c523, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131509648082237818, guid: c6ebeadce9de41e4da37cc140f23c523, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2067422782}
@@ -2088,6 +2108,34 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2067422784}
+    - target: {fileID: 3131509648082237818, guid: c6ebeadce9de41e4da37cc140f23c523, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1819359866}
+    - target: {fileID: 3131509648082237818, guid: c6ebeadce9de41e4da37cc140f23c523, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131509648082237818, guid: c6ebeadce9de41e4da37cc140f23c523, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SEPlay
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131509648082237818, guid: c6ebeadce9de41e4da37cc140f23c523, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: Button, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131509648082237818, guid: c6ebeadce9de41e4da37cc140f23c523, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131509648082237818, guid: c6ebeadce9de41e4da37cc140f23c523, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131509648082237818, guid: c6ebeadce9de41e4da37cc140f23c523, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3828588180683226393, guid: c6ebeadce9de41e4da37cc140f23c523, type: 3}
       propertyPath: m_Text
       value: 
@@ -2099,7 +2147,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 783825878076301190, guid: c6ebeadce9de41e4da37cc140f23c523, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1819359866}
   m_SourcePrefab: {fileID: 100100000, guid: c6ebeadce9de41e4da37cc140f23c523, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
