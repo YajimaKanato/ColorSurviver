@@ -398,6 +398,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 938804378763615795, guid: b93e2bed61df6e847af01107f170b704, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5286059ff8a78b94d98bc8c32e67425a, type: 2}
     - target: {fileID: 6828767921133617345, guid: b93e2bed61df6e847af01107f170b704, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.45
@@ -438,6 +442,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6974719968537050251, guid: b93e2bed61df6e847af01107f170b704, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 9984b0363f67c0741beb7de6820a3e4f, type: 2}
     - target: {fileID: 7806667183424401611, guid: b93e2bed61df6e847af01107f170b704, type: 3}
       propertyPath: m_Color.a
       value: 1
