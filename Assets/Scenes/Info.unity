@@ -511,7 +511,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4462942384248522324, guid: 218a97e9ff208dc488c1e62ba687c1fd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -791,7 +791,7 @@ SpriteRenderer:
   m_Size: {x: 0.5, y: 0.27}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &310080372
@@ -1986,7 +1986,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 0.78}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &824644871
@@ -2234,7 +2234,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Title
+  m_Text: 
 --- !u!222 &845653594
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2590,8 +2590,8 @@ Transform:
   m_GameObject: {fileID: 1045910689}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0702, y: -0.0077, z: 0}
-  m_LocalScale: {x: 0.9866, y: 1.0565, z: 1}
+  m_LocalPosition: {x: 0.0363, y: 0.0262, z: 0}
+  m_LocalScale: {x: 1.0038, y: 1.1169277, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2723,7 +2723,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2790287681558889876, guid: eed898623a076834faa59975afd398e7, type: 3}
+  m_Sprite: {fileID: 6988463502180804085, guid: 5c2b76e0eaa6ca5409f0daf59e0c7b6d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

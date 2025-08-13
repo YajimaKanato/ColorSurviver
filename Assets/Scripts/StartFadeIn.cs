@@ -2,11 +2,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-public class StartFadeIn : MonoBehaviour
+public class StartFadeIn : MonoBehaviour, IPause
 {
     [SerializeField] GameObject _obj;
 
     Image _image;
+
+    IEnumerator _coroutine;
 
     float _delta = 1;
     float _fadeTime = 1;
@@ -16,7 +18,8 @@ public class StartFadeIn : MonoBehaviour
     void Start()
     {
         _image = GetComponent<Image>();
-        StartCoroutine(Fade());
+        _coroutine = Fade();
+        StartCoroutine(_coroutine);
     }
 
     IEnumerator Fade()
@@ -43,6 +46,22 @@ public class StartFadeIn : MonoBehaviour
                 }
                 yield return null;
             }
+        }
+    }
+
+    public void Pause()
+    {
+        if (_coroutine != null)
+        {
+            StopCoroutine(_coroutine);
+        }
+    }
+
+    public void Resume()
+    {
+        if (_coroutine != null)
+        {
+            StartCoroutine(_coroutine);
         }
     }
 }

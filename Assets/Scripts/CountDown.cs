@@ -79,7 +79,7 @@ public class CountDown : MonoBehaviour, IPause, IGameControl
         }
     }
 
-    void GameOver()
+    public void GameOver()
     {
         //Objectを継承したGameObjectを指定することですべてのオブジェクトを取得することができる
         var pause = FindObjectsByType(typeof(GameObject), FindObjectsSortMode.None);
