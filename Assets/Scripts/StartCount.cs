@@ -62,6 +62,7 @@ public class StartCount : MonoBehaviour, IPause
 
                 if (_delta >= 1)
                 {
+                    SEManager.SEPlay("CountDown");
                     _delta = 0;
                     _count--;
                     _color.a = _defColor.a;

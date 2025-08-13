@@ -30,6 +30,7 @@ public class TargetClassificationB : MonoBehaviour, IPause, IGameControl
                 {
                     if (_targetBase.ColorStatus.ColorAttribute == _targetColor)
                     {
+                        SEManager.SEPlay("PutBat");
                         FindFirstObjectByType<ScoreManagerB>().AddScore(_targetBase.ColorStatus.ColorAttribute, _targetBase.Score);
                         _targetBase.SuccessClassification();
                         _target = null;
