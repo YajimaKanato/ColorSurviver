@@ -193,8 +193,8 @@ MonoBehaviour:
   _colorStatus: {fileID: 11400000, guid: dff94a70ff6a8d04691e93351791ecab, type: 2}
   _reverseColor: 0
   _catchOffset: {x: 0, y: -0.5, z: 0}
-  _originalSpeed: 1.2
-  _score: 150
+  _originalSpeed: 1.5
+  _score: 200
   _colorlessValue: 4
   _maxMoveInterval: 3
   _minMoveInterval: 0.5
