@@ -2074,7 +2074,7 @@ PrefabInstance:
       objectReference: {fileID: 1575262040}
     - target: {fileID: 4318423676816607781, guid: 0e26808c38818944693d3676b95ad05d, type: 3}
       propertyPath: _timer
-      value: 5
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 5138509233132318266, guid: 0e26808c38818944693d3676b95ad05d, type: 3}
       propertyPath: _scoreText
@@ -2134,7 +2134,7 @@ PrefabInstance:
       objectReference: {fileID: 536945590}
     - target: {fileID: 8724079864289091774, guid: 0e26808c38818944693d3676b95ad05d, type: 3}
       propertyPath: _maxTargetCount
-      value: 1
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5138509233132318266, guid: 0e26808c38818944693d3676b95ad05d, type: 3}

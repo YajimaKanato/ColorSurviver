@@ -141,7 +141,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.8094435, y: -2.2609768, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5503372177305618618}
@@ -303,7 +303,7 @@ MonoBehaviour:
   _colorStatus: {fileID: 11400000, guid: b039545eb4744d74ab299c54c4056728, type: 2}
   _reverseColor: 7
   _catchOffset: {x: 0, y: -0.5, z: 0}
-  _originalSpeed: 1.5
+  _originalSpeed: 1.2
   _score: 100
   _colorlessValue: 4
   _maxMoveInterval: 1
