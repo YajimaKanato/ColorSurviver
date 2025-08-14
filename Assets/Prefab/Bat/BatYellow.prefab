@@ -304,7 +304,7 @@ MonoBehaviour:
   _reverseColor: 0
   _catchOffset: {x: 0, y: -0.5, z: 0}
   _originalSpeed: 2
-  _score: 150
+  _score: 200
   _colorlessValue: 4
   _maxMoveInterval: 1
   _minMoveInterval: 0.8
