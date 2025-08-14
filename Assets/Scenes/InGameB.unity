@@ -1566,11 +1566,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 874111657563484770, guid: 15e954db554fc464da1a353e206c96fe, type: 3}
       propertyPath: _maxInterval
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 874111657563484770, guid: 15e954db554fc464da1a353e206c96fe, type: 3}
-      propertyPath: _minInterval
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 874111657563484770, guid: 15e954db554fc464da1a353e206c96fe, type: 3}
       propertyPath: _poolList.Array.size
@@ -1873,7 +1868,7 @@ PrefabInstance:
       objectReference: {fileID: 536945590}
     - target: {fileID: 8724079864289091774, guid: 0e26808c38818944693d3676b95ad05d, type: 3}
       propertyPath: _maxTargetCount
-      value: 18
+      value: 17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
