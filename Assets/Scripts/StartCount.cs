@@ -13,7 +13,7 @@ public class StartCount : MonoBehaviour, IPause
     IEnumerator _coroutine;
 
     int _count = 4;
-    float _delta = 0;
+    float _delta = 1;
     int _size;
     int _defSize;
 
@@ -39,7 +39,7 @@ public class StartCount : MonoBehaviour, IPause
         _text.text = "" + (_count - 1);
         while (true)
         {
-            if (_count <= 0)
+            if (_count < 0)
             {
                 GameStart();
                 yield break;
@@ -51,18 +51,22 @@ public class StartCount : MonoBehaviour, IPause
                 _delta += Time.deltaTime;
                 _color.a -= Time.deltaTime;
                 _size -= 1;
-                if (_count <= 1)
+                if (_count <= 0)
                 {
                     _text.text = "Let's Clean!";
                 }
                 else
                 {
-                    _text.text = "" + (_count - 1);
+                    _text.text = "" + _count;
                 }
 
                 if (_delta >= 1)
                 {
-                    SEManager.SEPlay("CountDown");
+                    if( _count > 0)
+                    {
+                        SEManager.SEPlay("CountDown");
+                    }
+                    
                     _delta = 0;
                     _count--;
                     _color.a = _defColor.a;

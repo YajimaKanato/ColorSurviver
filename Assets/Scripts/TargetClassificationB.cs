@@ -49,7 +49,7 @@ public class TargetClassificationB : MonoBehaviour, IPause, IGameControl
             {
                 if (_targetBase.IsCatched)
                 {
-                    _target = collision.gameObject;
+                    _target = _targetBase.gameObject;
                 }
             }
         }
