@@ -286,7 +286,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 1
+  m_Radius: 0.8
 --- !u!114 &-5104517155215080615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,6 +305,6 @@ MonoBehaviour:
   _catchOffset: {x: 0, y: -0.5, z: 0}
   _originalSpeed: 1.2
   _score: 100
-  _colorlessValue: 4
+  _colorlessValue: 5
   _maxMoveInterval: 1
   _minMoveInterval: 0.5
