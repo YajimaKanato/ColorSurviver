@@ -308,3 +308,4 @@ MonoBehaviour:
   _colorlessValue: 2
   _maxMoveInterval: 2
   _minMoveInterval: 1
+  _text: {fileID: 2838060366785205731, guid: a44ab670eb9b1394e9204f9d2a31f352, type: 3}

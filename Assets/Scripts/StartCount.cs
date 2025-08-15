@@ -55,18 +55,18 @@ public class StartCount : MonoBehaviour, IPause
                 {
                     _text.text = "Let's Clean!";
                 }
-                else
+                else if (_count <= 3)
                 {
                     _text.text = "" + _count;
                 }
 
                 if (_delta >= 1)
                 {
-                    if( _count > 0)
+                    if (_count > 0)
                     {
                         SEManager.SEPlay("CountDown");
                     }
-                    
+
                     _delta = 0;
                     _count--;
                     _color.a = _defColor.a;
