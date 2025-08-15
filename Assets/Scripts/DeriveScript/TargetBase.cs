@@ -17,6 +17,7 @@ public abstract class TargetBase : MonoBehaviour, IPause, IGameControl
     [SerializeField] int _colorlessValue = 4;
     [SerializeField] float _maxMoveInterval = 2;
     [SerializeField] float _minMoveInterval = 1;
+    [SerializeField] GameObject _text;
 
     public int Score { get { return _score; } }
 
@@ -151,6 +152,11 @@ public abstract class TargetBase : MonoBehaviour, IPause, IGameControl
 
     public void SuccessClassification()
     {
+        Vector3 instPos = Camera.main.WorldToScreenPoint(transform.position);
+        instPos.z = -10;
+        var text = Instantiate(_text, instPos, Quaternion.identity);
+        text.transform.SetParent(GameObject.Find("Canvas").transform);
+        text.GetComponent<ScoreGetText>().Score = _score;
         ReleaseToPool();
     }
 
